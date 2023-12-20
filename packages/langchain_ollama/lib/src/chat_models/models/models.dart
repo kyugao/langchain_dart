@@ -47,6 +47,8 @@ class ChatOllamaOptions extends ChatModelOptions implements OllamaOptions {
     this.ropeFrequencyBase,
     this.ropeFrequencyScale,
     this.numThread,
+    this.functions,
+    this.functionCall,
   });
 
   @override
@@ -165,4 +167,14 @@ class ChatOllamaOptions extends ChatModelOptions implements OllamaOptions {
 
   @override
   final int? numThread;
+
+  /// A list of functions the model may generate JSON inputs for.
+  ///
+  /// Ref: https://platform.openai.com/docs/api-reference/chat/create#chat-create-functions
+  final List<ChatFunction>? functions;
+
+  /// Controls how the model responds to function calls.
+  ///
+  /// Ref: https://platform.openai.com/docs/api-reference/chat/create#chat-create-function_call
+  final ChatFunctionCall? functionCall;
 }
